@@ -52,7 +52,9 @@ int main()
         myfile.close();
     }
     cout << "Success. Output in asmbytes.txt" << endl;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     system("pause");
+#endif
     return 0;
 }
 

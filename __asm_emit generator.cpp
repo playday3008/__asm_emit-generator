@@ -52,6 +52,7 @@ int main()
         myfile.close();
     }
     cout << "Success. Output in asmbytes.txt" << endl;
+    system("pause");
     return 0;
 }
 

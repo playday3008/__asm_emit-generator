@@ -54,6 +54,7 @@ int main()
     cout << "Success. Output in asmbytes.txt" << endl;
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     system("pause");
+    return 0;
 #endif
     return 0;
 }

@@ -36,12 +36,13 @@ int main(int argc, char* argv[])
     int n;
     int length = 2;
     char hex[30];
+    int def = 0;
     if (argc == 1)
     {
         cout << "Enter number of random __asm _emit strings you want." << endl;
         cin >> n;
     }
-    else if (argc == 2)
+    else if (argc == 2 || argc == 3)
     {
         stringstream convert(argv[1]);
         int myint;
@@ -67,12 +68,39 @@ int main(int argc, char* argv[])
         return 0;
 #endif
     }
+    if (argc == 3)
+    {
+        stringstream convert(argv[2]);
+        int myint;
+        if (!(convert >> myint))
+        {
+            cout << "You do some shit." << endl;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+            system("pause");
+            return 0;
+#else
+            return 0;
+#endif
+        }
+        def = myint;
+    }
     srand((unsigned int)time(0));
     cout << "Please wait" << endl;
     ofstream myfile;
-    myfile.open("asmbytes.txt");
+    if (def == 1)
+        myfile.open("junk.h");
+    else
+        myfile.open("asmbytes.txt");
     if (myfile.is_open())
     {
+        if (def == 1)
+        {
+            myfile << "#pragma once" << endl << endl;
+            myfile << "// And you need:" << endl;
+            myfile << "// 1. change all bytes(0x00, 0x01, 0x03....) in define \"JUNKS\" to random bytes" << endl;
+            myfile << "// 2. change size this block by add new bytes" << endl;
+            myfile << "#define JUNKS \\" << endl;
+        }
         for (int i = 0; i < n; i++)
         {
             hex_string(hex, length);

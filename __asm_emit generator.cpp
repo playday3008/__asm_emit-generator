@@ -1,10 +1,11 @@
 ﻿// __asm_emit generator.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
-#include<iostream>
-#include<stdlib.h>
-#include<time.h>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 void hex_string(char str[], int length)
@@ -19,24 +20,53 @@ void hex_string(char str[], int length)
     }
     str[length] = 0;
 }
-int main()
+int main(int argc, char* argv[])
 {
-    cout << "   ____       _      _         __   __________  ___________ ____ " <<endl;
-    cout << "  / __ \\_____(_)____(_)____   / /  / ____/ __ \\/ ____/ ___// __ \\" <<endl;
-    cout << " / / / / ___/ / ___/ / ___/  / /  / / __/ / / / __/  \\__ \\/ /_/ /" <<endl;
-    cout << "/ /_/ (__  ) / /  / (__  )  / /  / /_/ / /_/ / /___ ___/ / ____/ " <<endl;
-    cout << "\\____/____/_/_/  /_/____/  / /   \\____/\\____/_____//____/_/      " <<endl;
-    cout << "    ____  __            __///                                    " <<endl;
-    cout << "   / __ \\/ /___ ___  __/ __ \\____ ___  __                        " <<endl;
-    cout << "  / /_/ / / __ `/ / / / / / / __ `/ / / /                        " <<endl;
-    cout << " / ____/ / /_/ / /_/ / /_/ / /_/ / /_/ /                         " <<endl;
-    cout << "/_/   /_/\\__,_/\\__, /_____/\\__,_/\\__, /                          " <<endl;
-    cout << "              /____/            /____/                           " <<endl <<endl;
+    cout << "   ____       _      _         __   __________  ___________ ____ " << endl;
+    cout << "  / __ \\_____(_)____(_)____   / /  / ____/ __ \\/ ____/ ___// __ \\" << endl;
+    cout << " / / / / ___/ / ___/ / ___/  / /  / / __/ / / / __/  \\__ \\/ /_/ /" << endl;
+    cout << "/ /_/ (__  ) / /  / (__  )  / /  / /_/ / /_/ / /___ ___/ / ____/ " << endl;
+    cout << "\\____/____/_/_/  /_/____/  / /   \\____/\\____/_____//____/_/      " << endl;
+    cout << "    ____  __            __///                                    " << endl;
+    cout << "   / __ \\/ /___ ___  __/ __ \\____ ___  __                        " << endl;
+    cout << "  / /_/ / / __ `/ / / / / / / __ `/ / / /                        " << endl;
+    cout << " / ____/ / /_/ / /_/ / /_/ / /_/ / /_/ /                         " << endl;
+    cout << "/_/   /_/\\__,_/\\__, /_____/\\__,_/\\__, /                          " << endl;
+    cout << "              /____/            /____/                           " << endl << endl;
     int n;
     int length = 2;
     char hex[30];
-    cout << "Enter number of random __asm _emit strings you want." << endl;
-    cin >> n;
+    if (argc == 1)
+    {
+        cout << "Enter number of random __asm _emit strings you want." << endl;
+        cin >> n;
+    }
+    else if (argc == 2)
+    {
+        stringstream convert(argv[1]);
+        int myint;
+        if (!(convert >> myint))
+        {
+            cout << "You do some shit." << endl;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+            system("pause");
+            return 0;
+#else
+            return 0;
+#endif
+        }
+        n = myint;
+    }
+    else
+    {
+        cout << "You do some shit." << endl;
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+        system("pause");
+        return 0;
+#else
+        return 0;
+#endif
+    }
     srand((unsigned int)time(0));
     cout << "Please wait" << endl;
     ofstream myfile;

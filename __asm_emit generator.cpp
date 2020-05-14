@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <ctime>
 #include <fstream>
 #include <sstream>

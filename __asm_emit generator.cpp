@@ -20,6 +20,7 @@ void hex_string(char str[], int length)
     }
     str[length] = 0;
 }
+
 int main(int argc, char* argv[])
 {
     cout << "   ____       _      _         __   __________  ___________ ____ " << endl;
@@ -49,24 +50,24 @@ int main(int argc, char* argv[])
         if (!(convert >> myint))
         {
             cout << "You do some shit." << endl;
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+            #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
             system("pause");
             return 0;
-#else
+            #else
             return 0;
-#endif
+            #endif
         }
         n = myint;
     }
     else
     {
         cout << "You do some shit." << endl;
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+        #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
         system("pause");
         return 0;
-#else
+        #else
         return 0;
-#endif
+        #endif
     }
     if (argc == 3)
     {
@@ -75,12 +76,12 @@ int main(int argc, char* argv[])
         if (!(convert >> myint))
         {
             cout << "You do some shit." << endl;
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+            #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
             system("pause");
             return 0;
-#else
+            #else
             return 0;
-#endif
+            #endif
         }
         def = myint;
     }
@@ -110,12 +111,12 @@ int main(int argc, char* argv[])
         myfile.close();
     }
     cout << "Success. Output in asmbytes.txt" << endl;
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+    #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     system("pause");
     return 0;
-#else
+    #else
     return 0;
-#endif
+    #endif
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

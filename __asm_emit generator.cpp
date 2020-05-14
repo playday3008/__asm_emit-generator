@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
         }
         myfile.close();
     }
-    cout << "Success. Output in asmbytes.txt" << endl;
+    cout << "Success. Output in asmbytes.txt or junk.h" << endl;
     #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
     system("pause");
     return 0;
